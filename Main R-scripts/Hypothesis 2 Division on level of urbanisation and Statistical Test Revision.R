@@ -50,11 +50,9 @@ match_vars <- c("Log_price","house_type_binary", "bedroom", "bathroom", "living_
                 "Oprit...dichtstbijzijnde", "totalegroenenstemmen", "Cafe...aantal.binnen.3.km", 
                 "Warenhuis..aantal..binnen.5.km", "Hotel..aantal.binnen.5.km", "Voortgezet.onderwijs...aantal.binnen.3.km")
 
-# Perform matching for urban and rural areas
 matched_urban_data <- perform_matching(urban_data, match_vars, "label_category")
 matched_rural_data <- perform_matching(rural_data, match_vars, "label_category")
 
-# Run regression models on matched data
 model_urban_matched <- lm(Log_price ~ house_type_binary + bedroom + bathroom + living_area + house_age + 
                             Fully_insulated + Roof_Wall_Insulation + Double_Glazing + label_category + logwoz + Treinstation...dichtstbijzijnde + 
                             Overstapstation.trein...dichtstbijzijnde + Oprit...dichtstbijzijnde + 
