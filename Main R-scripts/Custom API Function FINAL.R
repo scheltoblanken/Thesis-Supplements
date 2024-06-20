@@ -53,10 +53,10 @@ is_dutch <- function(description) {
   !any(grepl(paste(english_words, collapse = "|"), description))
 }
 
-#Filter the dataset to create a subset where the descriptions are only in Dutch
+
 dutch_subset <- subset(data, sapply(data$description, is_dutch))
 
-# Sample 500 descriptions
+# Sample 500 descriptions,
 sample_descriptions <- head(dutch_subset$description, 500)
 Energylabel <- head(dutch_subset$energy_label, 500)
 sample_data <- data.frame(description = sample_descriptions, Energylabel = Energylabel, gptef = character(length(sample_descriptions)), sentiment = character(length(sample_descriptions)), features = character(length(sample_descriptions)), stringsAsFactors = FALSE)
